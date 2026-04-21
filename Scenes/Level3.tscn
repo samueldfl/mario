@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://blevel003"]
+
+[ext_resource type="Script" path="res://Scripts/Level3.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://bmario_player1" path="res://Scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://bgoomba_scene1" path="res://Scenes/Goomba.tscn" id="3_goomba"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_ground"]
+size = Vector2(4000, 48)
+
+[sub_resource type="RectangleShape2D" id="RectShape_p1"]
+size = Vector2(256, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_p2"]
+size = Vector2(192, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_p3"]
+size = Vector2(320, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_p4"]
+size = Vector2(256, 32)
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="BGColor" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.55, 0.35, 0.1, 1)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(2000, 696)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectShape_ground")
+
+[node name="Visual" type="Polygon2D" parent="Ground"]
+polygon = PackedVector2Array(-2000, -24, 2000, -24, 2000, 24, -2000, 24)
+color = Color(0.25, 0.14, 0.04, 1)
+
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(500, 540)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform1"]
+shape = SubResource("RectShape_p1")
+
+[node name="Visual" type="Polygon2D" parent="Platform1"]
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+color = Color(0.25, 0.14, 0.04, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(1100, 500)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform2"]
+shape = SubResource("RectShape_p2")
+
+[node name="Visual" type="Polygon2D" parent="Platform2"]
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
+color = Color(0.25, 0.14, 0.04, 1)
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(1800, 520)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform3"]
+shape = SubResource("RectShape_p3")
+
+[node name="Visual" type="Polygon2D" parent="Platform3"]
+polygon = PackedVector2Array(-160, -16, 160, -16, 160, 16, -160, 16)
+color = Color(0.25, 0.14, 0.04, 1)
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(2600, 540)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform4"]
+shape = SubResource("RectShape_p4")
+
+[node name="Visual" type="Polygon2D" parent="Platform4"]
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+color = Color(0.25, 0.14, 0.04, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(100, 640)
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Goomba1" parent="Enemies" instance=ExtResource("3_goomba")]
+position = Vector2(400, 648)
+
+[node name="Goomba2" parent="Enemies" instance=ExtResource("3_goomba")]
+position = Vector2(900, 648)
+
+[node name="Goomba3" parent="Enemies" instance=ExtResource("3_goomba")]
+position = Vector2(1100, 472)
+
+[node name="Goomba4" parent="Enemies" instance=ExtResource("3_goomba")]
+position = Vector2(1800, 648)
+
+[node name="Goomba5" parent="Enemies" instance=ExtResource("3_goomba")]
+position = Vector2(2600, 512)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Objective" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 700.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Lives" type="Label" parent="HUD"]
+offset_left = 1050.0
+offset_top = 16.0
+offset_right = 1270.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 1050.0
+offset_top = 48.0
+offset_right = 1270.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="PhaseLabel" type="Label" parent="HUD"]
+offset_left = 550.0
+offset_top = 16.0
+offset_right = 800.0
+offset_bottom = 46.0
+text = "Fase 3 — Goombas"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 1, 0, 1)

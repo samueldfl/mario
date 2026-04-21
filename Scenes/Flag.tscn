@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bflag_scene1"]
+
+[ext_resource type="Script" path="res://Scripts/Flag.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flag"]
+size = Vector2(48, 96)
+
+[node name="Flag" type="Area2D"]
+monitoring = true
+script = ExtResource("1_script")
+
+[node name="Pole" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-4, -80, 4, -80, 4, 24, -4, 24)
+color = Color(0.9, 0.9, 0.9, 1)
+
+[node name="FlagVis" type="Polygon2D" parent="."]
+position = Vector2(4, -76)
+polygon = PackedVector2Array(0, 0, 36, 12, 0, 24)
+color = Color(1, 0.2, 0.2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, -24)
+shape = SubResource("RectangleShape2D_flag")

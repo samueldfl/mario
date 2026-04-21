@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bgoomba_scene1"]
+
+[ext_resource type="Script" path="res://Scripts/Goomba.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ipnak52sqkfm" path="res://Assets/Enemies/Goomba_Walk1.png" id="2_walk1"]
+[ext_resource type="Texture2D" uid="uid://db1ik4up16coc" path="res://Assets/Enemies/Goomba_Walk2.png" id="3_walk2"]
+[ext_resource type="Texture2D" uid="uid://cnhgp5cuyq1fy" path="res://Assets/Enemies/Goomba_Flat.png" id="4_flat"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_goomba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_walk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_walk2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_flat")
+}],
+"loop": false,
+"name": &"flat",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goomba"]
+size = Vector2(24, 24)
+
+[node name="Goomba" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_goomba")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_goomba")

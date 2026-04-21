@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bstart_screen1"]
+
+[ext_resource type="Script" path="res://Scripts/StartScreen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://daqs6gddvvenw" path="res://Assets/Mario/mario.png" id="2_mario"]
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.09, 0.4, 0.85, 1)
+
+[node name="CenterContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -160.0
+offset_right = 200.0
+offset_bottom = 160.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer"]
+text = "Super Mario World"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer"]
+text = "4 Fases Esperando por Você!"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Spacer" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 30)
+
+[node name="MarioSprite" type="Sprite2D" parent="CenterContainer"]
+texture = ExtResource("2_mario")
+scale = Vector2(2, 2)
+
+[node name="Spacer2" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="StartButton" type="Button" parent="CenterContainer"]
+text = "Iniciar Jogo"
+theme_override_font_sizes/font_size = 22
+
+[node name="InfoLabel" type="Label" parent="CenterContainer"]
+text = "Setas: Mover | Cima: Pular | Espaço: Atirar"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)

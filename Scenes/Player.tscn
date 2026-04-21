@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bmario_player1"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://daqs6gddvvenw" path="res://Assets/Mario/mario.png" id="2_mario"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mario"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mario")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mario")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mario")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mario")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mario")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mario"]
+radius = 8.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 1
+collision_mask = 6
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mario")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_mario")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+limit_left = 0
+limit_bottom = 720
