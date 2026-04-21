@@ -30,21 +30,25 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = dir < 0
 
 	_update_animation()
+	var vel_y_before := velocity.y
 	move_and_slide()
-	_check_enemy_collisions()
+	_check_enemy_collisions(vel_y_before)
 
 	if position.y > 900:
 		die()
 
 func _update_animation() -> void:
+	var anim: StringName
 	if not is_on_floor():
-		sprite.play("jump")
+		anim = &"jump"
 	elif abs(velocity.x) > 10:
-		sprite.play("walk")
+		anim = &"walk"
 	else:
-		sprite.play("idle")
+		anim = &"idle"
+	if sprite.animation != anim:
+		sprite.play(anim)
 
-func _check_enemy_collisions() -> void:
+func _check_enemy_collisions(vel_y_before: float) -> void:
 	for i in get_slide_collision_count():
 		var col := get_slide_collision(i)
 		var body := col.get_collider()
@@ -52,7 +56,7 @@ func _check_enemy_collisions() -> void:
 			continue
 		if body.is_dead:
 			continue
-		if velocity.y > 50 and col.get_normal().y < -0.5:
+		if vel_y_before > 0 and col.get_normal().y < -0.3:
 			body.stomp(position.x)
 			stomp_bounce()
 		else:

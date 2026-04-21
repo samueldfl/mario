@@ -106,7 +106,7 @@ polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
 color = Color(0.42, 0.26, 0.09, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
-position = Vector2(100, 640)
+position = Vector2(100, 580)
 
 [node name="Flag" parent="." instance=ExtResource("3_flag")]
 position = Vector2(3400, 672)

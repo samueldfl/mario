@@ -28,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_goomba"]
-size = Vector2(24, 24)
+size = Vector2(14, 14)
 
 [node name="Goomba" type="CharacterBody2D"]
 collision_layer = 4
@@ -36,9 +36,11 @@ collision_mask = 3
 script = ExtResource("1_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_goomba")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_goomba")

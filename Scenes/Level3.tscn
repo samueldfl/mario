@@ -91,24 +91,29 @@ polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
 color = Color(0.25, 0.14, 0.04, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
-position = Vector2(100, 640)
+position = Vector2(100, 580)
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Goomba1" parent="Enemies" instance=ExtResource("3_goomba")]
-position = Vector2(400, 648)
+position = Vector2(400, 610)
+scale = Vector2(2, 2)
 
 [node name="Goomba2" parent="Enemies" instance=ExtResource("3_goomba")]
-position = Vector2(900, 648)
+position = Vector2(900, 610)
+scale = Vector2(2, 2)
 
 [node name="Goomba3" parent="Enemies" instance=ExtResource("3_goomba")]
-position = Vector2(1100, 472)
+position = Vector2(1100, 450)
+scale = Vector2(2, 2)
 
 [node name="Goomba4" parent="Enemies" instance=ExtResource("3_goomba")]
-position = Vector2(1800, 648)
+position = Vector2(1800, 610)
+scale = Vector2(2, 2)
 
 [node name="Goomba5" parent="Enemies" instance=ExtResource("3_goomba")]
-position = Vector2(2600, 512)
+position = Vector2(2600, 490)
+scale = Vector2(2, 2)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 2

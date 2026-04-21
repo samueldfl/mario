@@ -3,11 +3,41 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://daqs6gddvvenw" path="res://Assets/Mario/mario.png" id="2_mario"]
 
+[sub_resource type="AtlasTexture" id="AT_idle"]
+atlas = ExtResource("2_mario")
+region = Rect2(0, 21, 40, 41)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AT_walk1"]
+atlas = ExtResource("2_mario")
+region = Rect2(40, 21, 40, 41)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AT_walk2"]
+atlas = ExtResource("2_mario")
+region = Rect2(80, 21, 40, 41)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AT_walk3"]
+atlas = ExtResource("2_mario")
+region = Rect2(120, 21, 40, 41)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AT_jump"]
+atlas = ExtResource("2_mario")
+region = Rect2(160, 21, 40, 41)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AT_die"]
+atlas = ExtResource("2_mario")
+region = Rect2(200, 21, 40, 41)
+filter_clip = true
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mario"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mario")
+"texture": SubResource("AT_idle")
 }],
 "loop": true,
 "name": &"idle",
@@ -15,18 +45,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mario")
+"texture": SubResource("AT_walk1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_mario")
+"texture": SubResource("AT_walk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_walk3")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mario")
+"texture": SubResource("AT_jump")
 }],
 "loop": false,
 "name": &"jump",
@@ -34,16 +67,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mario")
+"texture": SubResource("AT_die")
 }],
 "loop": false,
 "name": &"die",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mario"]
-radius = 8.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectShape_mario"]
+size = Vector2(22, 70)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 1
@@ -51,12 +83,14 @@ collision_mask = 6
 script = ExtResource("1_script")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mario")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CapsuleShape2D_mario")
+position = Vector2(0, 4)
+shape = SubResource("RectShape_mario")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true

@@ -3,15 +3,67 @@
 [ext_resource type="Script" path="res://Scripts/Coin.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://wniyhpvqmyai" path="res://Assets/Mario/coin.png" id="2_coin"]
 
+[sub_resource type="AtlasTexture" id="AT_c1"]
+atlas = ExtResource("2_coin")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AT_c2"]
+atlas = ExtResource("2_coin")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AT_c3"]
+atlas = ExtResource("2_coin")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AT_c4"]
+atlas = ExtResource("2_coin")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AT_c5"]
+atlas = ExtResource("2_coin")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AT_c6"]
+atlas = ExtResource("2_coin")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AT_c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AT_c6")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_coin"]
-radius = 10.0
+radius = 14.0
 
 [node name="Coin" type="Area2D"]
 monitoring = true
 script = ExtResource("1_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_coin")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_coin")
+animation = &"spin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_coin")
