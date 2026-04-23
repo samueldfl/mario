@@ -44,10 +44,6 @@ collision_mask = 0
 [node name="Shape" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectShape_ground")
 
-[node name="Visual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(-2500, -24, 2500, -24, 2500, 24, -2500, 24)
-color = Color(0.18, 0.1, 0.02, 1)
-
 [node name="Platform1" type="StaticBody2D" parent="."]
 position = Vector2(400, 530)
 collision_layer = 2
@@ -55,10 +51,6 @@ collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Platform1"]
 shape = SubResource("RectShape_p1")
-
-[node name="Visual" type="Polygon2D" parent="Platform1"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
-color = Color(0.18, 0.1, 0.02, 1)
 
 [node name="Platform2" type="StaticBody2D" parent="."]
 position = Vector2(900, 530)
@@ -68,10 +60,6 @@ collision_mask = 0
 [node name="Shape" type="CollisionShape2D" parent="Platform2"]
 shape = SubResource("RectShape_p2")
 
-[node name="Visual" type="Polygon2D" parent="Platform2"]
-polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
-color = Color(0.18, 0.1, 0.02, 1)
-
 [node name="Platform3" type="StaticBody2D" parent="."]
 position = Vector2(1500, 530)
 collision_layer = 2
@@ -79,10 +67,6 @@ collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Platform3"]
 shape = SubResource("RectShape_p3")
-
-[node name="Visual" type="Polygon2D" parent="Platform3"]
-polygon = PackedVector2Array(-160, -16, 160, -16, 160, 16, -160, 16)
-color = Color(0.18, 0.1, 0.02, 1)
 
 [node name="Platform4" type="StaticBody2D" parent="."]
 position = Vector2(2300, 530)
@@ -92,10 +76,6 @@ collision_mask = 0
 [node name="Shape" type="CollisionShape2D" parent="Platform4"]
 shape = SubResource("RectShape_p4")
 
-[node name="Visual" type="Polygon2D" parent="Platform4"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
-color = Color(0.18, 0.1, 0.02, 1)
-
 [node name="Platform5" type="StaticBody2D" parent="."]
 position = Vector2(3000, 530)
 collision_layer = 2
@@ -103,10 +83,6 @@ collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Platform5"]
 shape = SubResource("RectShape_p5")
-
-[node name="Visual" type="Polygon2D" parent="Platform5"]
-polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
-color = Color(0.18, 0.1, 0.02, 1)
 
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
