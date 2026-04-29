@@ -3,6 +3,11 @@ extends Node2D
 var enemies_left := 0
 
 func _ready() -> void:
+	GameManager.tile_rect($Ground, Vector2(4000, 48))
+	GameManager.tile_rect($Platform1, Vector2(256, 32))
+	GameManager.tile_rect($Platform2, Vector2(192, 32))
+	GameManager.tile_rect($Platform3, Vector2(320, 32))
+	GameManager.tile_rect($Platform4, Vector2(256, 32))
 	for enemy in $Enemies.get_children():
 		enemies_left += 1
 		enemy.stomped.connect(_on_enemy_stomped)
