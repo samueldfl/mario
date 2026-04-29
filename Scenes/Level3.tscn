@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blevel003"]
 
 [ext_resource type="Script" uid="uid://dd72df3m8oa2k" path="res://Scripts/Level3.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://cai3r4ctwtdtj" path="res://Scenes/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://Scenes/Goomba.tscn" id="3_goomba"]
 [ext_resource type="TileSet" uid="uid://dfafdxog04gxv" path="res://Assets/Mario/tileset_manual.tres" id="4_tileset"]
 [ext_resource type="Script" uid="uid://civibp14p1w3j" path="res://Scripts/TileDecor.gd" id="5_tiledecor"]
@@ -175,35 +175,35 @@ position = Vector2(100, 580)
 
 [node name="Goomba1" parent="Enemies" unique_id=105313474 instance=ExtResource("3_goomba")]
 position = Vector2(350, 610)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba2" parent="Enemies" unique_id=455201403 instance=ExtResource("3_goomba")]
 position = Vector2(700, 610)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba3" parent="Enemies" unique_id=1945346021 instance=ExtResource("3_goomba")]
 position = Vector2(1100, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba4" parent="Enemies" unique_id=255673262 instance=ExtResource("3_goomba")]
 position = Vector2(2200, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba5" parent="Enemies" unique_id=1855584020 instance=ExtResource("3_goomba")]
 position = Vector2(1916, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba6" parent="Enemies" unique_id=74772175 instance=ExtResource("3_goomba")]
 position = Vector2(2600, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba7" parent="Enemies" unique_id=591422008 instance=ExtResource("3_goomba")]
 position = Vector2(3100, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba8" parent="Enemies" unique_id=277636713 instance=ExtResource("3_goomba")]
 position = Vector2(3466, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="TileDecor" type="Node" parent="." unique_id=1487841056]
 script = ExtResource("5_tiledecor")

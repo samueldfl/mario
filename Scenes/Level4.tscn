@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blevel004"]
 
 [ext_resource type="Script" uid="uid://hgv720wiyvr" path="res://Scripts/Level4.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://cai3r4ctwtdtj" path="res://Scenes/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://Scenes/Goomba.tscn" id="3_goomba"]
 [ext_resource type="PackedScene" path="res://Scenes/Koopa.tscn" id="4_koopa"]
 [ext_resource type="PackedScene" path="res://Scenes/Flag.tscn" id="5_flag"]
@@ -43,82 +43,83 @@ size = Vector2(192, 32)
 [node name="Level4" type="Node2D" unique_id=1089746716]
 script = ExtResource("1_script")
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="." unique_id=94155737]
 layer = -1
 
-[node name="BGColor" type="ColorRect" parent="Background"]
+[node name="BGColor" type="ColorRect" parent="Background" unique_id=1456241595]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.06, 0.06, 0.12, 1)
 
 [node name="CastleDecor" type="Node2D" parent="." unique_id=1586992114]
 
-[node name="Tower1" type="Node2D" parent="CastleDecor"]
+[node name="Tower1" type="Node2D" parent="CastleDecor" unique_id=442485195]
 position = Vector2(1100, 672)
 
-[node name="Body" type="Polygon2D" parent="CastleDecor/Tower1"]
+[node name="Body" type="Polygon2D" parent="CastleDecor/Tower1" unique_id=1850857088]
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(-45, -220, 45, -220, 45, 0, -45, 0)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="Battlements" type="Polygon2D" parent="CastleDecor/Tower1"]
+[node name="Battlements" type="Polygon2D" parent="CastleDecor/Tower1" unique_id=110272712]
 position = Vector2(0, -220)
-polygon = PackedVector2Array(-55, 0, -55, -48, -36, -48, -36, -22, -18, -22, -18, -48, 0, -48, 0, -22, 18, -22, 18, -48, 36, -48, 36, -22, 55, -22, 55, 0)
 color = Color(0.28, 0.25, 0.22, 1)
+polygon = PackedVector2Array(-55, 0, -55, -48, -36, -48, -36, -22, -18, -22, -18, -48, 0, -48, 0, -22, 18, -22, 18, -48, 36, -48, 36, -22, 55, -22, 55, 0)
 
-[node name="Window" type="Polygon2D" parent="CastleDecor/Tower1"]
+[node name="Window" type="Polygon2D" parent="CastleDecor/Tower1" unique_id=2128009357]
 position = Vector2(0, -130)
-polygon = PackedVector2Array(-12, -20, 12, -20, 12, 20, -12, 20)
 color = Color(0.08, 0.08, 0.16, 1)
+polygon = PackedVector2Array(-12, -20, 12, -20, 12, 20, -12, 20)
 
-[node name="Tower2" type="Node2D" parent="CastleDecor"]
+[node name="Tower2" type="Node2D" parent="CastleDecor" unique_id=1604529425]
 position = Vector2(2800, 672)
 
-[node name="Body" type="Polygon2D" parent="CastleDecor/Tower2"]
+[node name="Body" type="Polygon2D" parent="CastleDecor/Tower2" unique_id=331851976]
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(-45, -220, 45, -220, 45, 0, -45, 0)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="Battlements" type="Polygon2D" parent="CastleDecor/Tower2"]
+[node name="Battlements" type="Polygon2D" parent="CastleDecor/Tower2" unique_id=1221995962]
 position = Vector2(0, -220)
-polygon = PackedVector2Array(-55, 0, -55, -48, -36, -48, -36, -22, -18, -22, -18, -48, 0, -48, 0, -22, 18, -22, 18, -48, 36, -48, 36, -22, 55, -22, 55, 0)
 color = Color(0.28, 0.25, 0.22, 1)
+polygon = PackedVector2Array(-55, 0, -55, -48, -36, -48, -36, -22, -18, -22, -18, -48, 0, -48, 0, -22, 18, -22, 18, -48, 36, -48, 36, -22, 55, -22, 55, 0)
 
-[node name="Window" type="Polygon2D" parent="CastleDecor/Tower2"]
+[node name="Window" type="Polygon2D" parent="CastleDecor/Tower2" unique_id=1782944790]
 position = Vector2(0, -130)
-polygon = PackedVector2Array(-12, -20, 12, -20, 12, 20, -12, 20)
 color = Color(0.08, 0.08, 0.16, 1)
+polygon = PackedVector2Array(-12, -20, 12, -20, 12, 20, -12, 20)
 
-[node name="Gate" type="Node2D" parent="CastleDecor"]
+[node name="Gate" type="Node2D" parent="CastleDecor" unique_id=85406346]
 position = Vector2(4500, 672)
 
-[node name="LeftTower" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="LeftTower" type="Polygon2D" parent="CastleDecor/Gate" unique_id=549616617]
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(-130, -260, -90, -260, -90, 0, -130, 0)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="RightTower" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="RightTower" type="Polygon2D" parent="CastleDecor/Gate" unique_id=1772437822]
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(90, -260, 130, -260, 130, 0, 90, 0)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="Wall" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="Wall" type="Polygon2D" parent="CastleDecor/Gate" unique_id=777465766]
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(-90, -180, 90, -180, 90, -150, -90, -150)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="Arch" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="Arch" type="Polygon2D" parent="CastleDecor/Gate" unique_id=1820929439]
+color = Color(0.22, 0.2, 0.18, 1)
 polygon = PackedVector2Array(-90, -150, 90, -150, 90, 0, -90, 0)
-color = Color(0.22, 0.20, 0.18, 1)
 
-[node name="DoorOpening" type="Polygon2D" parent="CastleDecor/Gate"]
-polygon = PackedVector2Array(-55, -150, 55, -150, 55, 0, -55, 0)
+[node name="DoorOpening" type="Polygon2D" parent="CastleDecor/Gate" unique_id=1174638791]
 color = Color(0.04, 0.03, 0.06, 1)
+polygon = PackedVector2Array(-55, -150, 55, -150, 55, 0, -55, 0)
 
-[node name="BattlementsLeft" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="BattlementsLeft" type="Polygon2D" parent="CastleDecor/Gate" unique_id=42939355]
 position = Vector2(-110, -260)
+color = Color(0.28, 0.25, 0.22, 1)
 polygon = PackedVector2Array(-20, 0, -20, -45, -5, -45, -5, -22, 10, -22, 10, -45, 25, -45, 25, 0)
-color = Color(0.28, 0.25, 0.22, 1)
 
-[node name="BattlementsRight" type="Polygon2D" parent="CastleDecor/Gate"]
+[node name="BattlementsRight" type="Polygon2D" parent="CastleDecor/Gate" unique_id=1986998221]
 position = Vector2(110, -260)
-polygon = PackedVector2Array(-25, 0, -25, -45, -10, -45, -10, -22, 5, -22, 5, -45, 20, -45, 20, 0)
 color = Color(0.28, 0.25, 0.22, 1)
+polygon = PackedVector2Array(-25, 0, -25, -45, -10, -45, -10, -22, 5, -22, 5, -45, 20, -45, 20, 0)
 
 [node name="Ground1" type="StaticBody2D" parent="." unique_id=440037588]
 position = Vector2(600, 696)
@@ -287,22 +288,22 @@ position = Vector2(100, 580)
 
 [node name="Goomba1" parent="Enemies" unique_id=1307290263 instance=ExtResource("3_goomba")]
 position = Vector2(500, 610)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba2" parent="Enemies" unique_id=509436458 instance=ExtResource("3_goomba")]
 position = Vector2(900, 612)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba3" parent="Enemies" unique_id=1049852532 instance=ExtResource("3_goomba")]
 position = Vector2(2020, 502)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Goomba4" parent="Enemies" unique_id=2017568889 instance=ExtResource("3_goomba")]
 position = Vector2(3365, 607)
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Koopa1" parent="Enemies" unique_id=1952090076 instance=ExtResource("4_koopa")]
-position = Vector2(695, 648)
+position = Vector2(695, 650)
 scale = Vector2(2, 2)
 
 [node name="Koopa2" parent="Enemies" unique_id=1648633994 instance=ExtResource("4_koopa")]
@@ -310,7 +311,7 @@ position = Vector2(1615, 459)
 scale = Vector2(2, 2)
 
 [node name="Koopa3" parent="Enemies" unique_id=1210844338 instance=ExtResource("4_koopa")]
-position = Vector2(2363, 433)
+position = Vector2(2360, 444)
 scale = Vector2(2, 2)
 
 [node name="Koopa4" parent="Enemies" unique_id=2002019238 instance=ExtResource("4_koopa")]
