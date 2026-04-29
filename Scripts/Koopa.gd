@@ -9,6 +9,7 @@ enum State { WALKING, SHELL_IDLE, SHELL_MOVING }
 var state := State.WALKING
 var direction := -1
 var is_dead := false
+var spawn_position: Vector2
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -16,6 +17,7 @@ signal stomped
 
 func _ready() -> void:
 	add_to_group("enemy")
+	spawn_position = position
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -38,7 +40,10 @@ func _physics_process(delta: float) -> void:
 		direction = -direction
 
 	if position.y > 900:
-		queue_free()
+		position = spawn_position
+		velocity = Vector2.ZERO
+		state = State.WALKING
+		direction = -1
 
 func stomp(player_x: float) -> void:
 	match state:

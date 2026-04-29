@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = dir * SPEED if dir != 0 else move_toward(velocity.x, 0, SPEED * 2)
 
 	if dir != 0:
-		sprite.flip_h = dir < 0
+		sprite.flip_h = dir > 0
 
 	_update_animation()
 	var vel_y_before := velocity.y

@@ -1,166 +1,290 @@
 [gd_scene format=3 uid="uid://blevel002"]
 
-[ext_resource type="Script" path="res://Scripts/Level2.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://bmario_player1" path="res://Scenes/Player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://bcoin_scene1" path="res://Scenes/Coin.tscn" id="3_coin"]
+[ext_resource type="Script" uid="uid://xjw6udq45sym" path="res://Scripts/Level2.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://Scenes/Coin.tscn" id="3_coin"]
+[ext_resource type="TileSet" uid="uid://dfafdxog04gxv" path="res://Assets/Mario/tileset_manual.tres" id="4_tileset"]
+[ext_resource type="Script" uid="uid://civibp14p1w3j" path="res://Scripts/TileDecor.gd" id="5_tiledecor"]
+[ext_resource type="Texture2D" uid="uid://b0h7ln7yf1wn4" path="res://Assets/Mario/terrenos/terreno2.png" id="6_terreno"]
+[ext_resource type="Texture2D" uid="uid://bqxlcadrh8r1g" path="res://Assets/Mario/blocos/bloco2.png" id="7_bloco"]
 
 [sub_resource type="RectangleShape2D" id="RectShape_ground"]
 size = Vector2(4000, 48)
 
-[sub_resource type="RectangleShape2D" id="RectShape_plat"]
+[sub_resource type="RectangleShape2D" id="RectShape_md"]
+size = Vector2(192, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_sm"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectShape_lg"]
 size = Vector2(256, 32)
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" unique_id=1644917581]
 script = ExtResource("1_script")
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Trees" type="Node2D" parent="." unique_id=160756581]
 
-[node name="BGColor" type="ColorRect" parent="Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0.16, 0.55, 0.22, 1)
+[node name="Tree1" type="Node2D" parent="Trees" unique_id=1806225464]
+position = Vector2(580, 672)
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Trunk" type="Polygon2D" parent="Trees/Tree1" unique_id=991640495]
+color = Color(0.35, 0.2, 0.07, 1)
+polygon = PackedVector2Array(-13, -70, 13, -70, 13, 0, -13, 0)
+
+[node name="Canopy" type="Polygon2D" parent="Trees/Tree1" unique_id=120218682]
+position = Vector2(0, -78)
+color = Color(0.12, 0.42, 0.08, 1)
+polygon = PackedVector2Array(-50, 38, 50, 38, 65, 12, 50, -15, 16, -44, -16, -44, -50, -15, -65, 12)
+
+[node name="Tree2" type="Node2D" parent="Trees" unique_id=297719287]
+position = Vector2(1420, 672)
+
+[node name="Trunk" type="Polygon2D" parent="Trees/Tree2" unique_id=65214704]
+color = Color(0.35, 0.2, 0.07, 1)
+polygon = PackedVector2Array(-13, -70, 13, -70, 13, 0, -13, 0)
+
+[node name="Canopy" type="Polygon2D" parent="Trees/Tree2" unique_id=224300590]
+position = Vector2(0, -78)
+color = Color(0.1, 0.38, 0.07, 1)
+polygon = PackedVector2Array(-55, 42, 55, 42, 70, 14, 55, -18, 18, -50, -18, -50, -55, -18, -70, 14)
+
+[node name="Tree3" type="Node2D" parent="Trees" unique_id=346102882]
+position = Vector2(2230, 672)
+
+[node name="Trunk" type="Polygon2D" parent="Trees/Tree3" unique_id=400144176]
+color = Color(0.35, 0.2, 0.07, 1)
+polygon = PackedVector2Array(-13, -70, 13, -70, 13, 0, -13, 0)
+
+[node name="Canopy" type="Polygon2D" parent="Trees/Tree3" unique_id=1407558293]
+position = Vector2(0, -78)
+color = Color(0.12, 0.42, 0.08, 1)
+polygon = PackedVector2Array(-48, 36, 48, 36, 62, 11, 48, -14, 15, -42, -15, -42, -48, -14, -62, 11)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=714655934]
 position = Vector2(2000, 696)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Ground"]
+[node name="Shape" type="CollisionShape2D" parent="Ground" unique_id=1748989411]
 shape = SubResource("RectShape_ground")
 
-[node name="Visual" type="Polygon2D" parent="Ground"]
+[node name="Visual" type="Polygon2D" parent="Ground" unique_id=805581550]
+color = Color(0.3, 0.18, 0.05, 1)
 polygon = PackedVector2Array(-2000, -24, 2000, -24, 2000, 24, -2000, 24)
-color = Color(0.3, 0.18, 0.05, 1)
 
-[node name="Platform1" type="StaticBody2D" parent="."]
-position = Vector2(450, 530)
+[node name="GrassTop" type="Polygon2D" parent="Ground" unique_id=428983889]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-2000, -24, 2000, -24, 2000, -14, -2000, -14)
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=469025497]
+position = Vector2(400, 540)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform1"]
-shape = SubResource("RectShape_plat")
+[node name="Shape" type="CollisionShape2D" parent="Platform1" unique_id=1862843685]
+shape = SubResource("RectShape_md")
 
-[node name="Visual" type="Polygon2D" parent="Platform1"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+[node name="Visual" type="Polygon2D" parent="Platform1" unique_id=258348074]
 color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
 
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(950, 530)
+[node name="GrassTop" type="Polygon2D" parent="Platform1" unique_id=138408228]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, -8, -96, -8)
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1605432210]
+position = Vector2(735, 494)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform2"]
-shape = SubResource("RectShape_plat")
+[node name="Shape" type="CollisionShape2D" parent="Platform2" unique_id=1494695320]
+shape = SubResource("RectShape_sm")
 
-[node name="Visual" type="Polygon2D" parent="Platform2"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+[node name="Visual" type="Polygon2D" parent="Platform2" unique_id=309409875]
 color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
-[node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(1450, 530)
+[node name="GrassTop" type="Polygon2D" parent="Platform2" unique_id=1176040403]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, -8, -64, -8)
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=616726108]
+position = Vector2(1200, 530)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform3"]
-shape = SubResource("RectShape_plat")
+[node name="Shape" type="CollisionShape2D" parent="Platform3" unique_id=1000829260]
+shape = SubResource("RectShape_lg")
 
-[node name="Visual" type="Polygon2D" parent="Platform3"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+[node name="Visual" type="Polygon2D" parent="Platform3" unique_id=1049796913]
 color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
 
-[node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(1950, 530)
+[node name="GrassTop" type="Polygon2D" parent="Platform3" unique_id=1362893525]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, -8, -128, -8)
+
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1266637045]
+position = Vector2(1567, 483)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform4"]
-shape = SubResource("RectShape_plat")
+[node name="Shape" type="CollisionShape2D" parent="Platform4" unique_id=836942210]
+shape = SubResource("RectShape_sm")
 
-[node name="Visual" type="Polygon2D" parent="Platform4"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+[node name="Visual" type="Polygon2D" parent="Platform4" unique_id=123391887]
 color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
-[node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(2450, 530)
+[node name="GrassTop" type="Polygon2D" parent="Platform4" unique_id=335638247]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, -8, -64, -8)
+
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=1340335568]
+position = Vector2(1843, 439)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform5"]
-shape = SubResource("RectShape_plat")
+[node name="Shape" type="CollisionShape2D" parent="Platform5" unique_id=488281713]
+shape = SubResource("RectShape_sm")
 
-[node name="Visual" type="Polygon2D" parent="Platform5"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+[node name="Visual" type="Polygon2D" parent="Platform5" unique_id=1259651604]
 color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="GrassTop" type="Polygon2D" parent="Platform5" unique_id=353761977]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, -8, -64, -8)
+
+[node name="Platform6" type="StaticBody2D" parent="." unique_id=1037687202]
+position = Vector2(2195, 494)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform6" unique_id=264234694]
+shape = SubResource("RectShape_md")
+
+[node name="Visual" type="Polygon2D" parent="Platform6" unique_id=1473813403]
+color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
+
+[node name="GrassTop" type="Polygon2D" parent="Platform6" unique_id=1098198423]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-96, -16, 96, -16, 96, -8, -96, -8)
+
+[node name="Platform7" type="StaticBody2D" parent="." unique_id=1185799672]
+position = Vector2(2504, 424)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform7" unique_id=351710136]
+shape = SubResource("RectShape_lg")
+
+[node name="Visual" type="Polygon2D" parent="Platform7" unique_id=796139304]
+color = Color(0.3, 0.18, 0.05, 1)
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
+
+[node name="GrassTop" type="Polygon2D" parent="Platform7" unique_id=448007512]
+color = Color(0.18, 0.52, 0.08, 1)
+polygon = PackedVector2Array(-128, -16, 128, -16, 128, -8, -128, -8)
+
+[node name="Player" parent="." unique_id=306362144 instance=ExtResource("2_player")]
 position = Vector2(100, 580)
 
-[node name="Coins" type="Node" parent="."]
+[node name="Coins" type="Node" parent="." unique_id=1211305041]
 
-[node name="Coin1" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(200, 640)
+[node name="Coin1" parent="Coins" unique_id=2128103928 instance=ExtResource("3_coin")]
+position = Vector2(151, 649)
 
-[node name="Coin2" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(450, 498)
+[node name="Coin2" parent="Coins" unique_id=951102228 instance=ExtResource("3_coin")]
+position = Vector2(251, 651)
 
-[node name="Coin3" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(550, 640)
+[node name="Coin3" parent="Coins" unique_id=1089326161 instance=ExtResource("3_coin")]
+position = Vector2(400, 508)
 
-[node name="Coin4" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(950, 498)
+[node name="Coin4" parent="Coins" unique_id=6157642 instance=ExtResource("3_coin")]
+position = Vector2(450, 508)
 
-[node name="Coin5" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(1100, 640)
+[node name="Coin5" parent="Coins" unique_id=1881767509 instance=ExtResource("3_coin")]
+position = Vector2(685, 648)
 
-[node name="Coin6" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(1450, 498)
+[node name="Coin6" parent="Coins" unique_id=1165042532 instance=ExtResource("3_coin")]
+position = Vector2(735, 462)
 
-[node name="Coin7" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(1700, 640)
+[node name="Coin7" parent="Coins" unique_id=53229374 instance=ExtResource("3_coin")]
+position = Vector2(1000, 647)
 
-[node name="Coin8" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(1950, 498)
+[node name="Coin8" parent="Coins" unique_id=1600140336 instance=ExtResource("3_coin")]
+position = Vector2(1150, 498)
 
-[node name="Coin9" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(2200, 640)
+[node name="Coin9" parent="Coins" unique_id=714277967 instance=ExtResource("3_coin")]
+position = Vector2(1200, 498)
 
-[node name="Coin10" parent="Coins" instance=ExtResource("3_coin")]
-position = Vector2(2450, 498)
+[node name="Coin10" parent="Coins" unique_id=1792470482 instance=ExtResource("3_coin")]
+position = Vector2(1250, 498)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="Coin11" parent="Coins" unique_id=612406258 instance=ExtResource("3_coin")]
+position = Vector2(1512, 648)
+
+[node name="Coin12" parent="Coins" unique_id=1469284876 instance=ExtResource("3_coin")]
+position = Vector2(1567, 451)
+
+[node name="Coin13" parent="Coins" unique_id=1723612171 instance=ExtResource("3_coin")]
+position = Vector2(1863, 648)
+
+[node name="Coin14" parent="Coins" unique_id=1477515124 instance=ExtResource("3_coin")]
+position = Vector2(1843, 407)
+
+[node name="Coin15" parent="Coins" unique_id=897097971 instance=ExtResource("3_coin")]
+position = Vector2(2504, 392)
+
+[node name="TileDecor" type="Node" parent="." unique_id=514712296]
+script = ExtResource("5_tiledecor")
+tile_texture = ExtResource("6_terreno")
+min_width = 500.0
+
+[node name="TileDecorPlatforms" type="Node" parent="." unique_id=1365308502]
+script = ExtResource("5_tiledecor")
+tile_texture = ExtResource("7_bloco")
+max_width = 500.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=410016831]
+tile_set = ExtResource("4_tileset")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=101806179]
 layer = 2
 
-[node name="Objective" type="Label" parent="HUD"]
+[node name="Objective" type="Label" parent="HUD" unique_id=67699703]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 700.0
 offset_bottom = 46.0
-theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
 
-[node name="Lives" type="Label" parent="HUD"]
+[node name="Lives" type="Label" parent="HUD" unique_id=1743236616]
 offset_left = 1050.0
 offset_top = 16.0
 offset_right = 1270.0
 offset_bottom = 46.0
-theme_override_font_sizes/font_size = 18
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
 
-[node name="Score" type="Label" parent="HUD"]
+[node name="Score" type="Label" parent="HUD" unique_id=278523346]
 offset_left = 1050.0
 offset_top = 48.0
 offset_right = 1270.0
 offset_bottom = 78.0
-theme_override_font_sizes/font_size = 18
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
 
-[node name="PhaseLabel" type="Label" parent="HUD"]
+[node name="PhaseLabel" type="Label" parent="HUD" unique_id=1897099971]
 offset_left = 550.0
 offset_top = 16.0
 offset_right = 800.0
 offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "Fase 2 — Moedas"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(1, 1, 0, 1)

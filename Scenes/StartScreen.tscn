@@ -1,19 +1,23 @@
-[gd_scene format=3 uid="uid://bstart_screen1"]
+[gd_scene format=3 uid="uid://bduiy17emy0gh"]
 
-[ext_resource type="Script" path="res://Scripts/StartScreen.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://d3fepkv0n4eo0" path="res://Scripts/StartScreen.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://daqs6gddvvenw" path="res://Assets/Mario/mario.png" id="2_mario"]
 
-[node name="StartScreen" type="Control"]
+[node name="StartScreen" type="Control" unique_id=1925400460]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=951217933]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.09, 0.4, 0.85, 1)
 
-[node name="CenterContainer" type="VBoxContainer" parent="."]
+[node name="CenterContainer" type="VBoxContainer" parent="." unique_id=623207923]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -24,34 +28,42 @@ offset_right = 200.0
 offset_bottom = 160.0
 alignment = 1
 
-[node name="TitleLabel" type="Label" parent="CenterContainer"]
+[node name="TitleLabel" type="Label" parent="CenterContainer" unique_id=286019430]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 40
 text = "Super Mario World"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 40
-theme_override_colors/font_color = Color(1, 1, 0, 1)
 
-[node name="SubtitleLabel" type="Label" parent="CenterContainer"]
+[node name="SubtitleLabel" type="Label" parent="CenterContainer" unique_id=582831996]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
 text = "4 Fases Esperando por Você!"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 18
-theme_override_colors/font_color = Color(1, 1, 1, 1)
 
-[node name="Spacer" type="Control" parent="CenterContainer"]
+[node name="Spacer" type="Control" parent="CenterContainer" unique_id=976529136]
 custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
 
-[node name="MarioSprite" type="Sprite2D" parent="CenterContainer"]
-texture = ExtResource("2_mario")
+[node name="MarioSprite" type="Sprite2D" parent="CenterContainer" unique_id=2112088411]
+visible = false
+position = Vector2(-34, 152)
 scale = Vector2(2, 2)
+texture = ExtResource("2_mario")
 
-[node name="Spacer2" type="Control" parent="CenterContainer"]
+[node name="Spacer2" type="Control" parent="CenterContainer" unique_id=543306099]
 custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
-[node name="StartButton" type="Button" parent="CenterContainer"]
-text = "Iniciar Jogo"
+[node name="StartButton" type="Button" parent="CenterContainer" unique_id=209255735]
+layout_mode = 2
 theme_override_font_sizes/font_size = 22
+text = "Iniciar Jogo"
 
-[node name="InfoLabel" type="Label" parent="CenterContainer"]
+[node name="InfoLabel" type="Label" parent="CenterContainer" unique_id=552320272]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_font_sizes/font_size = 14
 text = "Setas: Mover | Cima: Pular | Espaço: Atirar"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 14
-theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)

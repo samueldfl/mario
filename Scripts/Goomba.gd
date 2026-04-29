@@ -5,6 +5,7 @@ const GRAVITY := 900.0
 
 var direction := -1
 var is_dead := false
+var spawn_position: Vector2
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -12,6 +13,7 @@ signal stomped
 
 func _ready() -> void:
 	add_to_group("enemy")
+	spawn_position = position
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -26,7 +28,9 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = direction > 0
 
 	if position.y > 900:
-		queue_free()
+		position = spawn_position
+		velocity = Vector2.ZERO
+		direction = -1
 
 func stomp(_player_x: float = 0.0) -> void:
 	if is_dead:

@@ -1,149 +1,145 @@
 [gd_scene format=3 uid="uid://blevel001"]
 
-[ext_resource type="Script" path="res://Scripts/Level1.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://bmario_player1" path="res://Scenes/Player.tscn" id="2_player"]
-[ext_resource type="PackedScene" uid="uid://bflag_scene1" path="res://Scenes/Flag.tscn" id="3_flag"]
+[ext_resource type="Script" uid="uid://c2bq48k71lyk5" path="res://Scripts/Level1.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://Scenes/Flag.tscn" id="3_flag"]
+[ext_resource type="TileSet" uid="uid://dfafdxog04gxv" path="res://Assets/Mario/tileset_manual.tres" id="4_tileset"]
+[ext_resource type="Script" uid="uid://civibp14p1w3j" path="res://Scripts/TileDecor.gd" id="5_tiledecor"]
+[ext_resource type="Texture2D" uid="uid://xvm5bonmh5a3" path="res://Assets/Mario/terrenos/terreno1.png" id="6_terreno"]
+[ext_resource type="Texture2D" uid="uid://pp67ljupreee" path="res://Assets/Mario/blocos/bloco1.png" id="7_bloco"]
 
 [sub_resource type="RectangleShape2D" id="RectShape_ground"]
 size = Vector2(4000, 48)
 
-[sub_resource type="RectangleShape2D" id="RectShape_p1"]
+[sub_resource type="RectangleShape2D" id="RectShape_md"]
 size = Vector2(192, 32)
 
-[sub_resource type="RectangleShape2D" id="RectShape_p2"]
-size = Vector2(192, 32)
+[sub_resource type="RectangleShape2D" id="RectShape_sm"]
+size = Vector2(128, 32)
 
-[sub_resource type="RectangleShape2D" id="RectShape_p3"]
+[sub_resource type="RectangleShape2D" id="RectShape_lg"]
 size = Vector2(256, 32)
 
-[sub_resource type="RectangleShape2D" id="RectShape_p4"]
-size = Vector2(192, 32)
-
-[sub_resource type="RectangleShape2D" id="RectShape_p5"]
-size = Vector2(256, 32)
-
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" unique_id=2138059347]
 script = ExtResource("1_script")
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="BGColor" type="ColorRect" parent="Background"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color(0.235, 0.627, 1, 1)
-
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1054466451]
 position = Vector2(2000, 696)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Ground"]
+[node name="Shape" type="CollisionShape2D" parent="Ground" unique_id=99429692]
 shape = SubResource("RectShape_ground")
 
-[node name="Visual" type="Polygon2D" parent="Ground"]
-polygon = PackedVector2Array(-2000, -24, 2000, -24, 2000, 24, -2000, 24)
-color = Color(0.42, 0.26, 0.09, 1)
-
-[node name="Platform1" type="StaticBody2D" parent="."]
-position = Vector2(400, 540)
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=812361964]
+position = Vector2(350, 540)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform1"]
-shape = SubResource("RectShape_p1")
+[node name="Shape" type="CollisionShape2D" parent="Platform1" unique_id=69499885]
+shape = SubResource("RectShape_md")
 
-[node name="Visual" type="Polygon2D" parent="Platform1"]
-polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
-color = Color(0.42, 0.26, 0.09, 1)
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(900, 540)
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=223289624]
+position = Vector2(671, 492)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform2"]
-shape = SubResource("RectShape_p2")
+[node name="Shape" type="CollisionShape2D" parent="Platform2" unique_id=1553415168]
+shape = SubResource("RectShape_sm")
 
-[node name="Visual" type="Polygon2D" parent="Platform2"]
-polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
-color = Color(0.42, 0.26, 0.09, 1)
-
-[node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(1400, 540)
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=855697037]
+position = Vector2(947, 460)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform3"]
-shape = SubResource("RectShape_p3")
+[node name="Shape" type="CollisionShape2D" parent="Platform3" unique_id=381826452]
+shape = SubResource("RectShape_sm")
 
-[node name="Visual" type="Polygon2D" parent="Platform3"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
-color = Color(0.42, 0.26, 0.09, 1)
-
-[node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(2100, 540)
+[node name="Platform4" type="StaticBody2D" parent="." unique_id=1966239942]
+position = Vector2(1202, 523)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform4"]
-shape = SubResource("RectShape_p4")
+[node name="Shape" type="CollisionShape2D" parent="Platform4" unique_id=471236970]
+shape = SubResource("RectShape_md")
 
-[node name="Visual" type="Polygon2D" parent="Platform4"]
-polygon = PackedVector2Array(-96, -16, 96, -16, 96, 16, -96, 16)
-color = Color(0.42, 0.26, 0.09, 1)
-
-[node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(2700, 540)
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=180475636]
+position = Vector2(1936, 547)
 collision_layer = 2
 collision_mask = 0
 
-[node name="Shape" type="CollisionShape2D" parent="Platform5"]
-shape = SubResource("RectShape_p5")
+[node name="Shape" type="CollisionShape2D" parent="Platform5" unique_id=1218715041]
+shape = SubResource("RectShape_lg")
 
-[node name="Visual" type="Polygon2D" parent="Platform5"]
-polygon = PackedVector2Array(-128, -16, 128, -16, 128, 16, -128, 16)
-color = Color(0.42, 0.26, 0.09, 1)
+[node name="Platform6" type="StaticBody2D" parent="." unique_id=473810531]
+position = Vector2(2369, 484)
+collision_layer = 2
+collision_mask = 0
 
-[node name="Player" parent="." instance=ExtResource("2_player")]
+[node name="Shape" type="CollisionShape2D" parent="Platform6" unique_id=2018631809]
+shape = SubResource("RectShape_md")
+
+[node name="Platform7" type="StaticBody2D" parent="." unique_id=2082445939]
+position = Vector2(2779, 512)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape2D" parent="Platform7" unique_id=1770568658]
+shape = SubResource("RectShape_lg")
+
+[node name="Player" parent="." unique_id=1966217156 instance=ExtResource("2_player")]
 position = Vector2(100, 580)
 
-[node name="Flag" parent="." instance=ExtResource("3_flag")]
-position = Vector2(3400, 672)
+[node name="Flag" parent="." unique_id=981579393 instance=ExtResource("3_flag")]
+position = Vector2(3448, 647)
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="TileDecor" type="Node" parent="." unique_id=1919242531]
+script = ExtResource("5_tiledecor")
+tile_texture = ExtResource("6_terreno")
+min_width = 500.0
+
+[node name="TileDecorPlatforms" type="Node" parent="." unique_id=1387960111]
+script = ExtResource("5_tiledecor")
+tile_texture = ExtResource("7_bloco")
+max_width = 500.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=604256077]
+position = Vector2(527, -388)
+tile_set = ExtResource("4_tileset")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1738595101]
 layer = 2
 
-[node name="Objective" type="Label" parent="HUD"]
+[node name="Objective" type="Label" parent="HUD" unique_id=1057323615]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 700.0
 offset_bottom = 46.0
-theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
 
-[node name="Lives" type="Label" parent="HUD"]
+[node name="Lives" type="Label" parent="HUD" unique_id=1776221682]
 offset_left = 1050.0
 offset_top = 16.0
 offset_right = 1270.0
 offset_bottom = 46.0
-theme_override_font_sizes/font_size = 18
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
 
-[node name="Score" type="Label" parent="HUD"]
+[node name="Score" type="Label" parent="HUD" unique_id=1967625460]
 offset_left = 1050.0
 offset_top = 48.0
 offset_right = 1270.0
 offset_bottom = 78.0
-theme_override_font_sizes/font_size = 18
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
 
-[node name="PhaseLabel" type="Label" parent="HUD"]
+[node name="PhaseLabel" type="Label" parent="HUD" unique_id=450806333]
 offset_left = 550.0
 offset_top = 16.0
 offset_right = 800.0
 offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 16
 text = "Fase 1 — Tutorial"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(1, 1, 0, 1)
