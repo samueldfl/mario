@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bfireball_s01"]
+
+[ext_resource type="Script" path="res://Scripts/Fireball.gd" id="1_fireball"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fb"]
+radius = 7.0
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 64
+collision_mask = 4
+script = ExtResource("1_fireball")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -7, 6, -3, 6, 3, 0, 7, -6, 3, -6, -3)
+color = Color(1, 0.5, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fb")

@@ -1,12 +1,20 @@
 extends Node2D
 
+const FIRE_FLOWER_SCENE := preload("res://Scenes/FireFlower.tscn")
+
 var enemies_left := 0
 
 func _ready() -> void:
 	for enemy in $Enemies.get_children():
 		enemies_left += 1
 		enemy.stomped.connect(_on_enemy_stomped)
+	_spawn_fire_flower(Vector2(150, 655))
 	_update_hud()
+
+func _spawn_fire_flower(pos: Vector2) -> void:
+	var flower := FIRE_FLOWER_SCENE.instantiate()
+	flower.position = pos
+	add_child(flower)
 
 func _update_hud() -> void:
 	$HUD/Objective.text = "Goombas: %d restante(s)" % enemies_left

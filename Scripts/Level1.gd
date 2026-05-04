@@ -1,8 +1,16 @@
 extends Node2D
 
+const FIRE_FLOWER_SCENE := preload("res://Scenes/FireFlower.tscn")
+
 func _ready() -> void:
 	$Flag.reached.connect(_on_flag_reached)
+	_spawn_fire_flower(Vector2(150, 655))
 	_update_hud()
+
+func _spawn_fire_flower(pos: Vector2) -> void:
+	var flower := FIRE_FLOWER_SCENE.instantiate()
+	flower.position = pos
+	add_child(flower)
 
 func _update_hud() -> void:
 	$HUD/Objective.text = "Objetivo: Chegue à bandeira!"

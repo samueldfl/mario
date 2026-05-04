@@ -1,5 +1,7 @@
 extends Node2D
 
+const FIRE_FLOWER_SCENE := preload("res://Scenes/FireFlower.tscn")
+
 var enemies_left := 0
 var all_defeated := false
 
@@ -8,7 +10,13 @@ func _ready() -> void:
 		enemies_left += 1
 		enemy.stomped.connect(_on_enemy_stomped)
 	$Flag.reached.connect(_on_flag_reached)
+	_spawn_fire_flower(Vector2(150, 655))
 	_update_hud()
+
+func _spawn_fire_flower(pos: Vector2) -> void:
+	var flower := FIRE_FLOWER_SCENE.instantiate()
+	flower.position = pos
+	add_child(flower)
 
 func _update_hud() -> void:
 	if not all_defeated:
